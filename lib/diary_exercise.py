@@ -1,4 +1,4 @@
-#diary snippet
+#diary snippet and more
 
 def make_snippet(input_string):
     string_list = input_string.split(' ')
@@ -25,6 +25,14 @@ def verify_punc(input_string):
         return False
 
 
+def check_todo(input_string):
+    string_list = input_string.split(' ')
+    if "#TODO" in string_list or "#TODO." in string_list:
+        return True
+    else:
+        return False
+
+
 # 1.  describe the problem
 # 2.  design the function signature
 # 3.  create example tests
@@ -44,3 +52,8 @@ def verify_punc(input_string):
 # signature - verify_punc, 1 input string, 1 boolean
 # tests - "Heres one." = True   "and another" = False 
 # implement - check string [0] is upper and check [-1] is a punctuation symbol, return t/f
+
+# problem - check if a text includes the string #TODO.
+# signature - check_todo, 1 input string , boolean t/f
+# tests - "Heres one #TODO." = True   "and another" = False 
+# implement - convert string into list of words , check for #TODO in list, return t/f
