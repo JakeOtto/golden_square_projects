@@ -1,5 +1,6 @@
 #diary snippet and more
 
+
 def make_snippet(input_string):
     string_list = input_string.split(' ')
     
@@ -8,7 +9,10 @@ def make_snippet(input_string):
     for i in first_5: 
         return_string += (f"{i} ")
 
-    return (f"{return_string}"+"...")
+    if len(input_string) > 5:
+        return (f"{return_string}"+"...")
+    else:
+        return (return_string)
 
 def est_time_to_read(input_string):
     string_list = input_string.split(' ')
@@ -31,6 +35,25 @@ def check_todo(input_string):
         return True
     else:
         return False
+    
+
+    
+def get_most_common_letter(text):
+    counter = {}
+    for char in text:
+        counter[char] = counter.get(char, 0) + 1
+
+    i = -1
+    letter = sorted(counter.items(), key=lambda item: item[1])[i][0]
+    if letter == " ":
+        i -=1
+        letter = letter = sorted(counter.items(), key=lambda item: item[1])[(i)][0]
+
+    return letter
+
+
+
+
 
 
 # 1.  describe the problem
@@ -44,7 +67,7 @@ def check_todo(input_string):
 # # implement - string to list of words, take only first 5 words, remake string with ... 
 
 # problem - estimate time reading
-# signature - est_time_to_read  , 1 input string, 1 time signature string
+# signature - est_time_to_read  , 1 input string, 1 time signature string output
 # tests - "some real string commin in now, a string so long that it would take an ammount of time to read"  == some short time in minutes
 # implement - split input to list of words, take length of list, (200 words a minute) 200/length = x x*1 = time in minutes
 
@@ -57,3 +80,4 @@ def check_todo(input_string):
 # signature - check_todo, 1 input string , boolean t/f
 # tests - "Heres one #TODO." = True   "and another" = False 
 # implement - convert string into list of words , check for #TODO in list, return t/f
+
