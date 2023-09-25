@@ -10,15 +10,16 @@ class Diary_system:
         self.todo_list = TodoList()
         self.contact_dict = {}
 
-    def add_diary_entry(self,diary_entry,diary_contents):
-        diary_entry = DiaryEntry(diary_entry,diary_contents)
-        self.contact_dict[diary_entry](self.find_phone_numbers(diary_contents))
+    def add_diary_entry(self,diary_entry):
+        diary_key = diary_entry.entry_title
+        self.contact_dict[diary_key](self.find_phone_numbers(diary_contents))
         self.diary_entry_list.append(diary_entry)
 
 
-    # def read_diary_entries(self):
-    #     return self.diary_entry_list()
+    def read_diary_entries(self):
+        return self.diary_entry_list()
     
+
     # def read_on_time(self,time_avalible, wpm):
     #     time_to_read_dict = {}
     #     for entry in self.diary_entry_list:
@@ -27,33 +28,21 @@ class Diary_system:
     #     diary_entry = [key for key, value in time_to_read_dict.items() if value == closest_time][0]
     #     return diary_entry.diary_contents
 
-    # def add_todo_entry(self,todo_name,todo_discription):
-    #     todo_name = Todo(todo_discription)
-    #     self.todo_list.list_of_tasks.append(todo_name)
+    # def add_todo_entry(self,todo):
+    #     self.todo_list.append(todo)
 
     # def return_contact_list(self):
     #     return self.contact_list()
 
 
-    # def find_phone_numbers(input_string):
-    #     # Define a regular expression pattern to match 11-digit phone numbers
-    #     pattern = r'\b\d{11}\b'
+    def find_phone_numbers(input_string):
+        # Define a regular expression pattern to match 11-digit phone numbers
+        pattern = r'\b\d{11}\b'
 
     #     # Use re.findall to find all matching phone numbers in the input string
-    #     phone_numbers = re.findall(pattern, input_string)
+        phone_numbers = re.findall(pattern, input_string)
 
-    #     return phone_numbers
-
-
-test_diary_system = Diary_system()
-test_diary_system.add_diary_entry("Monday11th","well it was rubbish day but met this cute girl who kept asking me about things i liked to eat at mcdonalds, maybe becuase she works there, told me to reach her on 07434298476, careful she has a mad, one eyed dog")
-test_diary_system.add_diary_entry("Tuesday 12th","man she did work there, the number was for customer feedback")
-# test_diary_system.add_diary_entry("23/4/23","nobody i know died in south central la, today was a good day, just ring up father Dolally on 07722078463")
-# test_diary_system.read_diary_entries()
-# test_diary_system.add_todo_entry("Cut_grass","oi up, we need to cut old man jenkin's grass, careful he has a mad, one eyed dog")
-# test_diary_system.add_todo_entry("Wash up","mann that chick with the fro next door is having a bbq thursday, make sure you wash your face")
-# test_diary_system.return_contact_list()
-
+        return phone_numbers
 
 
 

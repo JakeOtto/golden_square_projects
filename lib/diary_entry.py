@@ -1,4 +1,4 @@
-#diary exercise, to test
+    #diary exercise, to test
 class DiaryEntry:
     def __init__(self, title, contents):
         self.entry_title = title
